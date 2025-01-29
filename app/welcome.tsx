@@ -1,12 +1,24 @@
 import { StyleSheet, Text, TouchableOpacity, View, Image } from 'react-native';
 
-import Header from "../../components/Header"
-import Button from "../../components/Button"
+import { useRouter } from "expo-router";
+
+import Header from "../components/Header"
+import Button from "../components/Button"
 
 export default function HomeScreen() {
+  const router = useRouter();
+
   return (
     <>
-      <Text>OIE</Text>
+      <Header>
+        <Image style={styles.image} source={require("../assets/images/Logo.png")} />
+      </Header>
+
+      <View style={styles.container}>
+        <Button onPress={() => router.push("/login")} text="INICIAR" />
+
+        <Text style={styles.text}>Política de privacidade</Text>
+      </View>
     </>
   );
 }
