@@ -4,10 +4,10 @@ import { useRouter } from 'expo-router'; // Import useRouter
 import Header from '../../components/Header';
 
 const users = [
-  { id: '1', name: 'Dona Maria',freq_cardiaca: 80, alert: 'Possível queda',last_updates: 2,image: require('../../assets/images/idosa.png') },
-  { id: '2', name: 'Dona Lurdes',freq_cardiaca: 130 ,alert: 'Frequência cardíaca alterada',last_updates: 5, image: require('../../assets/images/idosa.png') },
-  { id: '3', name: 'Seu João',freq_cardiaca: 155, alert: 'Frequência cardíaca alterada',last_updates: 10, image: require('../../assets/images/idosa.png') },
-  { id: '4', name: 'Dona Vivian',freq_cardiaca: 65, alert: 'Remédio atrasado',last_updates: 1, image: require('../../assets/images/idosa.png') },
+  { id: '1', name: 'Dona Maria',age: 78, freq_cardiaca: 80, alert: 'Possível queda',last_updates: 2,image: require('../../assets/images/idosa.png') },
+  { id: '2', name: 'Dona Lurdes', age: 81, freq_cardiaca: 130 ,alert: 'Frequência cardíaca alterada',last_updates: 5, image: require('../../assets/images/idosa.png') },
+  { id: '3', name: 'Seu João', age: 91,freq_cardiaca: 155, alert: 'Frequência cardíaca alterada',last_updates: 10, image: require('../../assets/images/idosa.png') },
+  { id: '4', name: 'Dona Vivian', age: 95, freq_cardiaca: 65, alert: 'Remédio atrasado',last_updates: 1, image: require('../../assets/images/idosa.png') },
 ];
 
 export default function HomeScreen() {
@@ -41,7 +41,11 @@ export default function HomeScreen() {
         />
       </View>
       <View style={styles.buttonB}>
-        <TouchableOpacity style={styles.containerButton}>
+        <TouchableOpacity 
+          style={styles.containerButton}
+          onPress={() => router.push({ pathname: '/remedios',
+            params: { name: 'item.name',
+                       }})}>
           <Text style={styles.textButton}>Ver Remédios Hoje</Text>
         </TouchableOpacity>
       </View>
@@ -66,11 +70,11 @@ const styles = StyleSheet.create({
     fontSize: 30,
     fontFamily: 'inter',
     color: 'white',
-    fontWeight: '600',
+    fontWeight: 'bold',
     textAlign: 'left',
     paddingLeft: 30,
     marginBottom: 20,
-    paddingTop: 40,
+    paddingTop: 45,
     width: '100%',
   },
   userCard: { flexDirection: 'row', alignItems: 'center', padding: 5, borderRadius: 10, marginBottom: 10 },

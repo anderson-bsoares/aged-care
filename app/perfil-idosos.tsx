@@ -1,8 +1,18 @@
 import React from 'react';
 import { View, Text, StyleSheet, TouchableOpacity, Image } from 'react-native';
 import { useLocalSearchParams } from 'expo-router'; // Import useLocalSearchParams
+import { useRouter } from 'expo-router'; // Import useRouter
+
+const users = [
+  { id: '1', name: 'Dona Maria',remedios: 'Glifage', horario: '16h30', image: require('../assets/images/idosa.png') },
+  { id: '2', name: 'Dona Lurdes', remedios: 'Prolopa', horario: '16h30', image: require('../assets/images/idosa.png') },
+  { id: '3', name: 'Seu João', remedios: 'Frontal', horario: '16h40', image: require('../assets/images/idosa.png') },
+  { id: '4', name: 'Dona Vivian', remedios: 'Glifage', horario: '16h45', image: require('../assets/images/idosa.png') },
+];
+
 
 export default function ProfileIdosoScreen() {
+  const router = useRouter(); 
   const params = useLocalSearchParams(); // Access all parameters
   const name = params.name as string;
   const alertM = params.alertM as string;
@@ -43,7 +53,9 @@ export default function ProfileIdosoScreen() {
       </View>
 
       {/* Botão de remédios */}
-      <TouchableOpacity style={styles.button}>
+      <TouchableOpacity style={styles.button} onPress={() => router.push({ pathname: '/remedios-idoso',
+            params: { name: name,
+                       }})}>
         <Text style={styles.buttonText}>Remédios de {name}</Text>
       </TouchableOpacity>
     </View>
@@ -62,7 +74,7 @@ const styles = StyleSheet.create({
     top: 0,
     left: 0,
     right: 0,
-    height: 235, // Altura do header verde
+    height: 280, // Altura do header verde
     backgroundColor: '#82CBAF', // Cor verde
     borderBottomLeftRadius: 30, // Bordas arredondadas
     borderBottomRightRadius: 30,
@@ -73,9 +85,9 @@ const styles = StyleSheet.create({
     zIndex: 1, // Garante que o card fique acima do header verde
   },
   profileImage: {
-    width: 100,
-    height: 100,
-    borderRadius: 50,
+    width: 130,
+    height: 130,
+    borderRadius: 80,
     borderWidth: 3, // Borda branca ao redor da imagem
     borderColor: '#FFF',
   },
@@ -86,21 +98,21 @@ const styles = StyleSheet.create({
     color: 'white',
   },
   age: {
-    fontSize: 18,
+    fontSize: 22,
     color: 'white',
     marginTop: 5,
   },
   infoContainer: {
     marginTop: 50,
     width: '100%',
-    backgroundColor: '#FFF', // Fundo branco para as informações
+    // backgroundColor: '#FFF', // Fundo branco para as informações
     borderRadius: 15,
     padding: 20,
-    shadowColor: '#000',
-    shadowOffset: { width: 0, height: 2 },
-    shadowOpacity: 0.1,
-    shadowRadius: 6,
-    elevation: 3, // Sombra no Android
+    // shadowColor: '#000',
+    // shadowOffset: { width: 0, height: 2 },
+    // shadowOpacity: 0.1,
+    // shadowRadius: 6,
+    // elevation: 3, // Sombra no Android
   },
   infoRow: {
     flexDirection: 'row',
