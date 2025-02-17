@@ -5,9 +5,9 @@ import { useRouter } from 'expo-router'; // Import useRouter
 
 const users = [
   { id: '1', name: 'Dona Maria',remedios: 'Glifage', horario: '16h30', image: require('../assets/images/idosa.png') },
-  { id: '2', name: 'Dona Lurdes', remedios: 'Prolopa', horario: '16h30', image: require('../assets/images/idosa.png') },
-  { id: '3', name: 'Seu João', remedios: 'Frontal', horario: '16h40', image: require('../assets/images/idosa.png') },
-  { id: '4', name: 'Dona Vivian', remedios: 'Glifage', horario: '16h45', image: require('../assets/images/idosa.png') },
+  { id: '2', name: 'Dona Lurdes', remedios: 'Prolopa', horario: '16h30', image: require('../assets/images/idosa1.png') },
+  { id: '3', name: 'Seu João', remedios: 'Frontal', horario: '16h40', image: require('../assets/images/idoso2.png') },
+  { id: '4', name: 'Dona Vivian', remedios: 'Glifage', horario: '16h45', image: require('../assets/images/idoso4.png') },
 ];
 
 
@@ -58,6 +58,14 @@ export default function ProfileIdosoScreen() {
                        }})}>
         <Text style={styles.buttonText}>Remédios de {name}</Text>
       </TouchableOpacity>
+
+      <TouchableOpacity style={styles.button} onPress={() => router.push({ pathname: '/editar-remedios',
+            params: { name: name,
+                       }})}>
+        <Text style={styles.buttonText}>Editar</Text>
+      </TouchableOpacity>
+
+      
     </View>
   );
 }
@@ -90,6 +98,20 @@ const styles = StyleSheet.create({
     borderRadius: 80,
     borderWidth: 3, // Borda branca ao redor da imagem
     borderColor: '#FFF',
+  },
+  editButton: {
+    backgroundColor: '#82CBAF',
+    borderRadius: 10,
+    padding: 15,
+    alignItems: 'center',
+    marginTop: 30,
+    marginHorizontal: 30,
+  },
+  editButtonText: {
+    color: 'white',
+    fontWeight: 'bold',
+    fontSize: 18,
+    paddingHorizontal: 68,
   },
   name: {
     fontSize: 22,
@@ -135,9 +157,10 @@ const styles = StyleSheet.create({
     color: '#C1B2B2',
     marginTop: 10,
     textAlign: 'center',
+    marginBottom: 70,
   },
   button: {
-    marginTop: 100,
+    marginTop: 20,
     backgroundColor: '#82CBAF',
     padding: 13,
     borderRadius: 10,

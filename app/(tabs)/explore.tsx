@@ -5,13 +5,13 @@ import Header from '../../components/Header';
 
 const users = [
   { id: '1', name: 'Dona Maria', alert: 'Possível queda', freq_cardiaca: 80, last_updates: 2, image: require('../../assets/images/idosa.png') },
-  { id: '2', name: 'Dona Lurdes', alert: 'Possível queda', freq_cardiaca: 130, last_updates: 5, image: require('../../assets/images/idosa.png') },
-  { id: '3', name: 'Seu João', alert: 'Possível queda', freq_cardiaca: 155, last_updates: 10, image: require('../../assets/images/idosa.png') },
-  { id: '4', name: 'Seu Vitor', alert: 'Nenhum', freq_cardiaca: 65, last_updates: 1, image: require('../../assets/images/idosa.png') },
+  { id: '2', name: 'Dona Lurdes', alert: 'Possível queda', freq_cardiaca: 130, last_updates: 5, image: require('../../assets/images/idosa1.png') },
+  { id: '3', name: 'Seu João', alert: 'Possível queda', freq_cardiaca: 155, last_updates: 10, image: require('../../assets/images/idoso2.png') },
+  { id: '4', name: 'Seu Vitor', alert: 'Nenhum', freq_cardiaca: 65, last_updates: 1, image: require('../../assets/images/idoso4.png') },
   { id: '5', name: 'Dona Luiza', alert: 'Nenhum', freq_cardiaca: 65, last_updates: 1, image: require('../../assets/images/idosa.png') },
-  { id: '6', name: 'Seu Antonio', alert: 'Nenhum', freq_cardiaca: 65, last_updates: 1, image: require('../../assets/images/idosa.png') },
-  { id: '7', name: 'Dona Mara', alert: 'Nenhum', freq_cardiaca: 65, last_updates: 1, image: require('../../assets/images/idosa.png') },
-  { id: '8', name: 'Dona Lilian', alert: 'Nenhum', freq_cardiaca: 65, last_updates: 1, image: require('../../assets/images/idosa.png') },
+  { id: '6', name: 'Seu Antonio', alert: 'Nenhum', freq_cardiaca: 65, last_updates: 1, image: require('../../assets/images/idosa1.png') },
+  { id: '7', name: 'Dona Mara', alert: 'Nenhum', freq_cardiaca: 65, last_updates: 1, image: require('../../assets/images/idoso2.png') },
+  { id: '8', name: 'Dona Lilian', alert: 'Nenhum', freq_cardiaca: 65, last_updates: 1, image: require('../../assets/images/idoso4.png') },
 ];
 
 export default function VerIdosos() {
@@ -50,6 +50,12 @@ export default function VerIdosos() {
           showsVerticalScrollIndicator={true} // Esconde a barra de rolagem
         />
       </View>
+      <TouchableOpacity 
+        style={styles.button} 
+        onPress={() => router.push({ pathname: '/adicionar-idoso',
+          })}>
+        <Text style={styles.buttonText}>Adicionar Idoso</Text>
+      </TouchableOpacity>
     </View>
   );
 }
@@ -67,6 +73,21 @@ const styles = StyleSheet.create({
     marginBottom: 20,
     paddingTop: 45,
     width: '100%',
+  },
+  button: {
+    // marginTop: 50,
+    backgroundColor: '#82CBAF',
+    padding: 13,
+    borderRadius: 10,
+    marginBottom: 20,
+    width: '80%',
+    alignItems: 'center',
+    marginLeft: 40,
+  },
+  buttonText: {
+    color: '#FFF',
+    fontSize: 18,
+    fontWeight: 'bold',
   },
   userCard: {
     flexDirection: 'row',

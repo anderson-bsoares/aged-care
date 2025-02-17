@@ -5,9 +5,9 @@ import Header from '../../components/Header';
 
 const users = [
   { id: '1', name: 'Dona Maria',age: 78, freq_cardiaca: 80, alert: 'Possível queda',last_updates: 2,image: require('../../assets/images/idosa.png') },
-  { id: '2', name: 'Dona Lurdes', age: 81, freq_cardiaca: 130 ,alert: 'Frequência cardíaca alterada',last_updates: 5, image: require('../../assets/images/idosa.png') },
-  { id: '3', name: 'Seu João', age: 91,freq_cardiaca: 155, alert: 'Frequência cardíaca alterada',last_updates: 10, image: require('../../assets/images/idosa.png') },
-  { id: '4', name: 'Dona Vivian', age: 95, freq_cardiaca: 65, alert: 'Remédio atrasado',last_updates: 1, image: require('../../assets/images/idosa.png') },
+  { id: '2', name: 'Dona Lurdes', age: 81, freq_cardiaca: 130 ,alert: 'Frequência cardíaca alterada',last_updates: 5, image: require('../../assets/images/idosa1.png') },
+  { id: '3', name: 'Seu João', age: 91,freq_cardiaca: 155, alert: 'Frequência cardíaca alterada',last_updates: 10, image: require('../../assets/images/idoso2.png') },
+  { id: '4', name: 'Dona Vivian', age: 95, freq_cardiaca: 65, alert: 'Remédio atrasado',last_updates: 1, image: require('../../assets/images/idoso4.png') },
 ];
 
 export default function HomeScreen() {
@@ -29,7 +29,8 @@ export default function HomeScreen() {
                 params: { name: item.name,
                           alertM: item.alert,
                           freq_cardiaca: item.freq_cardiaca, 
-                          last_updated: item.last_updates }})}
+                          last_updated: item.last_updates
+                         }})}
             >
               <Image source={item.image} style={styles.userImage} />
               <View>
@@ -59,7 +60,7 @@ const styles = StyleSheet.create({
     backgroundColor: '#82CBAF',
     justifyContent: 'center',
     alignItems: 'center',
-    borderRadius: 20,
+    borderRadius: 10,
     height: 50,
     width: '80%',
     paddingHorizontal: 40,
@@ -81,5 +82,5 @@ const styles = StyleSheet.create({
   userImage: { width: 70, height: 70, borderRadius: 25, marginRight: 10 },
   userName: { fontSize: 20, fontWeight: 'bold', color: '#7B7474', paddingLeft: 15 },
   userAlert: { fontSize: 16, paddingLeft: 15, color: '#BAADAD', fontWeight: '600' },
-  textButton: { color: '#fff', fontWeight: 'bold', fontSize: 16 },
+  textButton: { color: '#fff', fontWeight: 'bold', fontSize: 18 },
 });

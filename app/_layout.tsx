@@ -33,6 +33,8 @@ export default function RootLayout() {
         <Stack.Screen name="perfil-idosos" />
         <Stack.Screen name="remedios" />
         <Stack.Screen name="remedios-idoso" />
+        <Stack.Screen name="editar-remedios" />
+        <Stack.Screen name="adicionar-idoso" />
       </Stack>
       <StatusBar style="auto" />
     </ThemeProvider>

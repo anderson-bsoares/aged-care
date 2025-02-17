@@ -83,9 +83,6 @@ export default function RemediosScreen() {
           />
         </View>
       )}
-      <TouchableOpacity style={styles.editButton}>
-        <Text style={styles.editButtonText}>Editar Remédios</Text>
-      </TouchableOpacity>
     </View>
 
     </View>
