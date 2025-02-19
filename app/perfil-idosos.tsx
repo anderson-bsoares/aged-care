@@ -3,6 +3,10 @@ import { View, Text, StyleSheet, TouchableOpacity, Image } from 'react-native';
 import { useLocalSearchParams } from 'expo-router'; // Import useLocalSearchParams
 import { useRouter } from 'expo-router'; // Import useRouter
 
+import { useBluetooh } from "../hooks/useBluetooh"
+
+import { elapsedTime } from "../utils/time"
+
 const users = [
   { id: '1', name: 'Dona Maria',remedios: 'Glifage', horario: '16h30', image: require('../assets/images/idosa.png') },
   { id: '2', name: 'Dona Lurdes', remedios: 'Prolopa', horario: '16h30', image: require('../assets/images/idosa1.png') },
@@ -12,6 +16,8 @@ const users = [
 
 
 export default function ProfileIdosoScreen() {
+  const { receivedData, lastTime, connectedDevice } = useBluetooh()
+
   const router = useRouter(); 
   const params = useLocalSearchParams(); // Access all parameters
   const name = params.name as string;
@@ -43,13 +49,13 @@ export default function ProfileIdosoScreen() {
       <View style={styles.infoContainer}>
         <View style={styles.infoRow}>
           <Text style={styles.infoLabel}>Frequência</Text>
-          <Text style={styles.infoValue}>{freq_cardiaca} bpm</Text>
+          <Text style={styles.infoValue}>{connectedDevice ? receivedData?.split("[Heart]")[1] : freq_cardiaca} bpm</Text>
         </View>
         <View style={styles.infoRow}>
           <Text style={styles.infoLabel}>Alerta</Text>
-          <Text style={styles.infoValue}>{alertM}</Text>
+          <Text style={styles.infoValue}>{connectedDevice ? receivedData?.split("[Break]")[1] : alertM}</Text>
         </View>
-        <Text style={styles.lastUpdate}>Última atualização: {last_updated} minuto(s) atrás</Text>
+        <Text style={styles.lastUpdate}>Última atualização: {connectedDevice ? elapsedTime(lastTime) : last_updated} minuto(s) atrás</Text>
       </View>
 
       {/* Botão de remédios */}

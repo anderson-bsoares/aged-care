@@ -1,5 +1,7 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import { StyleSheet, Text, View, FlatList, Image, Switch } from 'react-native';
+
+import { useBluetooh } from "../hooks/useBluetooh"
 
 interface Medicine {
   id: number;
@@ -10,6 +12,10 @@ interface Medicine {
 }
 
 const VerRemedios = () => {
+  const { devices, receivedData, connectToDevice } = useBluetooh()
+
+  console.log(devices)
+
   const [agora, setAgora] = useState<Medicine[]>([
     { id: 1, nome: 'Dona Maria', horario: '9h', remedio: 'Glifage 1cp', taken: false },
     { id: 2, nome: 'Dona Maria', horario: '9h', remedio: 'Glifage 1cp', taken: false },
@@ -33,6 +39,18 @@ const VerRemedios = () => {
       ));
     }
   };
+
+  useEffect(() => {
+    const handleConnection = async () => {
+      const device =  devices.find(device => device.name.includes("ESP32test"))
+
+      if (device) connectToDevice(device)
+    }
+
+    if (devices.length) {
+      handleConnection()
+    }
+  }, [devices])
 
   const renderItem = ({ item, list }: { item: Medicine, list: 'agora' | 'proximos' }) => (
     <View style={styles.item}>
