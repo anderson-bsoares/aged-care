@@ -49,7 +49,7 @@ export default function ProfileIdosoScreen() {
       <View style={styles.infoContainer}>
         <View style={styles.infoRow}>
           <Text style={styles.infoLabel}>Frequência</Text>
-          <Text style={styles.infoValue}>{connectedDevice ? receivedData?.split("[Heart]")[1] : freq_cardiaca} bpm</Text>
+          <Text style={styles.infoValue}>{connectedDevice ? receivedData?.split("[Heart]")[1] : `${freq_cardiaca} bpm`}</Text>
         </View>
         <View style={styles.infoRow}>
           <Text style={styles.infoLabel}>Alerta</Text>
