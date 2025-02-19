@@ -2,7 +2,7 @@
 
 Para usar o Bluetooh, observe: 
 
-1) https://kenjdavidson.com/react-native-bluetooth-classic/guides/using-with-expo/
+1) Observe a instalação em https://kenjdavidson.com/react-native-bluetooth-classic/guides/using-with-expo/
 2) Observe a configuração ./app.json
 2) Observe a implementação em ./hooks/useBluetooh.tsx
 3) Observe o uso em ./app/(tabs)/remedios.tsx e ./app/(tabs)/perfil-idosos.tsx
